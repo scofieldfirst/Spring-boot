@@ -28,7 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Spring-boot" target="1.8" />
-      <module name="Spring-junits" target="1.8" />
+      <module name="Spring-junits" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
