@@ -1,12 +1,10 @@
 package com.wisely.highlight_springmvc4;
 
+import com.wisely.highlight_springmvc4.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -31,5 +29,20 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		super.addResourceHandlers(registry);
 		registry.addResourceHandler("/assets.**").addResourceLocations("classpath:/assets/");
+	}
+
+	@Bean
+	public DemoInterceptor demoInterceptor(){
+		return new DemoInterceptor();
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry){
+		registry.addInterceptor(demoInterceptor());
+	}
+
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/index").setViewName("/index");
 	}
 }
