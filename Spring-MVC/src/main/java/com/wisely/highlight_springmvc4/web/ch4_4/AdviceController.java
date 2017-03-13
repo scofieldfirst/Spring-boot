@@ -1,4 +1,4 @@
-package com.wisely.highlight_springmvc4.web.ch4_3.ch4_4;
+package com.wisely.highlight_springmvc4.web.ch4_4;
 
 import com.wisely.highlight_springmvc4.domain.DemoObj;
 import org.springframework.stereotype.Controller;
