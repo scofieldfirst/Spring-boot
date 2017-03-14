@@ -22,8 +22,10 @@ public class UploadController {
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     public @ResponseBody String upload(MultipartFile file ,HttpServletRequest request){
         try {
-            FileUtils.writeByteArrayToFile(new File("/Users/scofield/Desktop/spring-write/" + file.getOriginalFilename()),file.getBytes());
-            System.out.println("file name:" + file.getName() + "file originalName: " + file.getOriginalFilename());
+
+            String path = request.getSession().getServletContext().getRealPath("upload");
+            FileUtils.writeByteArrayToFile(new File(path  + file.getOriginalFilename()),file.getBytes());
+            System.out.println(path);
             return "ok";
         }catch (Exception e){
             e.printStackTrace();
