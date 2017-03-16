@@ -1,0 +1,4 @@
+com/wisely/App.class
+com/wisely/spring_boot_starter_hello/HelloServiceAutoConfiguration.class
+com/wisely/spring_boot_starter_hello/HelloService.class
+com/wisely/spring_boot_starter_hello/HelloServceProperties.class
